@@ -27,15 +27,4 @@ class jamesmead {
       ensure => enabled
     }
   }
-
-  define db($environment, $password) {
-    include jamesmead::users
-    include freerange
-    include mysql::server
-
-    mysql::server::db { "$name_$environment":
-      user => $name,
-      password => $password
-    }
-  }
 }
