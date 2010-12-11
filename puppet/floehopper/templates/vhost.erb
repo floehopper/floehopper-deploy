@@ -8,16 +8,16 @@
   RewriteCond %{HTTP_HOST} ^www.<%= domain %>$ [NC]
   RewriteRule ^/(.*)$ http://<%= domain %>/$1 [R=301,L]
 
-  DocumentRoot <%= deploy_to %>/current/public
+  DocumentRoot <%= deploy_to %>
 
   # Check for maintenance file and redirect all requests
   RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
   RewriteCond %{SCRIPT_FILENAME} !maintenance.html
   RewriteRule ^.*$ /system/maintenance.html [L]
 
-  <Directory "<%= deploy_to %>/current/public">
+  <Directory "<%= deploy_to %>">
     allow from all
-    Options +Indexes
+    Options FollowSymLinks MultiViews
   </Directory>
 
   <%= vhost_additions.join("\n  ") %>

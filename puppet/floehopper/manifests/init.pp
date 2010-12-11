@@ -18,7 +18,7 @@ class floehopper {
     }
   }
 
-  define app($deploy_to, $domain=$name, $vhost_additions=[]) {
+  define static_website($deploy_to, $domain=$name, $vhost_additions=[]) {
     include floehopper::users
     include apache
 
