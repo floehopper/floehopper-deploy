@@ -2,7 +2,7 @@ class floehopper {
   define user($user, $key, $key_type="ssh-rsa") {
     freerange::user_without_ssh_key { $name:
       user => $user,
-      shell => "/bin/zsh"
+      shell => "/bin/bash"
     }
     freerange::append_ssh_key_to_user { $name:
       user => $user,
