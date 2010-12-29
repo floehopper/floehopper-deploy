@@ -18,13 +18,35 @@ class floehopper {
     }
   }
 
-  define static_website($deploy_to, $domain=$name, $vhost_additions=[]) {
+  define webby_app($deploy_to, $domain=$name, $vhost_additions=[]) {
     include floehopper::users
     include apache
 
     apache::host { $name:
-      content => template("floehopper/vhost.erb"),
+      content => template("floehopper/static-vhost.erb"),
       ensure => enabled
+    }
+  }
+
+  define rails_app($deploy_to, $domain=$name, $vhost_additions=[]) {
+    include floehopper::users
+    include xml
+    include rack
+
+    rack::host { $name:
+      content => template("floehopper/rails-vhost.erb"),
+      ensure => enabled
+    }
+  }
+
+  define rails_db($environment, $password) {
+    include floehopper::users
+    include freerange
+    include mysql::server
+
+    mysql::server::db { "${name}_${environment}":
+      user => $name,
+      password => $password
     }
   }
 }
