@@ -2,13 +2,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{floehopper-deploy}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["James Mead"]
-  s.date = %q{2010-12-16}
+  s.date = %q{2010-12-29}
   s.email = %q{james@floehopper.org}
-  s.files = ["Gemfile", "lib/floehopper", "lib/floehopper/deploy.rb", "puppet/floehopper", "puppet/floehopper/manifests", "puppet/floehopper/manifests/init.pp", "puppet/floehopper/templates", "puppet/floehopper/templates/vhost.erb"]
+  s.files = ["Gemfile", "lib/floehopper", "lib/floehopper/deploy.rb", "puppet/floehopper", "puppet/floehopper/manifests", "puppet/floehopper/manifests/init.pp", "puppet/floehopper/templates", "puppet/floehopper/templates/rails-vhost.erb", "puppet/floehopper/templates/static-vhost.erb"]
   s.homepage = %q{http://jamesmead.org}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
